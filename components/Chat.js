@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, FlatList } from "react-native";
 import Message from "./Message";
+import Input from "./Input";
 
 const Chat = () => {
   const [messages, setMessages] = useState([
@@ -41,26 +42,48 @@ const Chat = () => {
     },
   ]);
 
+  const onSubmitClicked = (message) => {
+    console.log("Message: " + message);
+    setMessages((currentMessages) => [
+      ...currentMessages,
+      {
+        id: Math.random().toString(),
+        text: message,
+        createdAt: new Date(),
+      },
+    ]);
+    console.log(messages);
+  };
+
   return (
-    <View style={styles.chat}>
+    <View>
+      <View style={styles.messages}>
         <FlatList
-        keyExtractor={(item, index) => item.id}
-        data={messages}
-        renderItem={(itemData) => (
+          keyExtractor={(item, index) => item.id}
+          data={messages}
+          renderItem={(itemData) => (
             <Message text={itemData.item.text}></Message>
-        )}>
-        </FlatList>
+          )}
+        ></FlatList>
+      </View>
+
+      <View style={styles.input}>
+        <Input onSubmit={onSubmitClicked}></Input>
+      </View>
     </View>
-  );a
+  );
+  a;
 };
 
 export default Chat;
 
 const styles = StyleSheet.create({
-  chat: {
+  messages: {
     paddingLeft: 10,
-    backgroundColor: '#fff',
-    alignItems: 'baseline',
-    justifyContent: 'center',
+    paddingBottom: 50,
+    backgroundColor: "#fff",
+    alignItems: "baseline",
+    justifyContent: "flex-start",
   },
+  input: {},
 });
