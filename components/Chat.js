@@ -40,6 +40,91 @@ const Chat = () => {
       text: "Hello developer",
       createdAt: new Date(),
     },
+    {
+      id: "8",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "9",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "10",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "11",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "12",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "13",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "14",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "15",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "16",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "17",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "18",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "19",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "20",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "21",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "22",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "23",
+      text: "Hello developer",
+      createdAt: new Date(),
+    },
+    {
+      id: "24",
+      text: "Hello developer",
+      createdAt: new Date(),
+    }
   ]);
 
   const onSubmitClicked = (message) => {
@@ -56,17 +141,17 @@ const Chat = () => {
   };
 
   return (
-    <View>
-      <View style={styles.messages}>
+    <View style={styles.container}>
+      <View style={styles.listContainer}>
         <FlatList
           keyExtractor={(item, index) => item.id}
           data={messages}
+          contentContainerStyle={styles.list}
           renderItem={(itemData) => (
-            <Message text={itemData.item.text}></Message>
+            <Message style={styles.message} text={itemData.item.text}></Message>
           )}
         ></FlatList>
       </View>
-
       <View style={styles.input}>
         <Input onSubmit={onSubmitClicked}></Input>
       </View>
@@ -78,12 +163,26 @@ const Chat = () => {
 export default Chat;
 
 const styles = StyleSheet.create({
-  messages: {
-    paddingLeft: 10,
-    paddingBottom: 50,
-    backgroundColor: "#fff",
-    alignItems: "baseline",
-    justifyContent: "flex-start",
+  container: {
+    flex: 1,
+    alignItems: "center"
   },
-  input: {},
+  listContainer: {
+    flex:1,
+    width: "90%",
+    backgroundColor: "#0f0"
+  },
+  list: {
+    flexGrow: 1,
+    justifyContent: "flex-end",
+    backgroundColor: "#f00"
+  },
+  message: {
+    margin: 5
+  },
+  input: {
+    backgroundColor: "#00f",
+    flex: 0.1,
+    width: "100%"
+  }
 });

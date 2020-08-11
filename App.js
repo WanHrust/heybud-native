@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Chat from './components/Chat';
+import React from "react";
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import Chat from "./components/Chat";
 export default function App() {
-  
   return (
-    <View style={styles.container}>
-      <Text> fdas fads Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <SafeAreaView style={styles.screen}>
+      <View style={styles.header}>
+        <Text> Hey bud! </Text>
+      </View>
       <Chat></Chat>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 50,
-  }
+  screen: {
+    flex: 1,
+  },
+  header: {
+    padding: 10,
+    alignItems: "center"
+  },
 });

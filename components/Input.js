@@ -9,7 +9,7 @@ export default function Input(props) {
     props.onSubmit(enteredMessage);
   };
   return (
-    <View>
+    <View style={styles.container}>
       <View>
         <TextInput
           placeholder="Hey Bud!"
@@ -19,32 +19,26 @@ export default function Input(props) {
         ></TextInput>
       </View>
       <View>
-        <Button title="Send" onPress={onSubmit} />
+        <Button style={styles.button} title="Send" onPress={onSubmit} />
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  inputContainer: {
+  container: {
     flexDirection: "row",
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
   },
   input: {
-    width: "80%",
+    flex: 0.8,
     borderColor: "black",
     borderWidth: 1,
     padding: 10,
     marginBottom: 10,
   },
-  buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "60%",
-  },
   button: {
-    width: "40%",
+    flex: 0.2,
   },
 });
