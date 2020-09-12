@@ -152,8 +152,8 @@ const Chat = () => {
           )}
         ></FlatList>
       </View>
-      <View style={styles.input}>
-        <Input onSubmit={onSubmitClicked}></Input>
+      <View style={styles.inputContainer}>
+        <Input style={styles.input} onSubmit={onSubmitClicked}></Input>
       </View>
     </View>
   );
@@ -180,9 +180,13 @@ const styles = StyleSheet.create({
   message: {
     margin: 5
   },
-  input: {
-    backgroundColor: "#00f",
+  inputContainer: {
     flex: 0.1,
-    width: "100%"
+    width: "100%",
+    alignItems: "center"
+  },
+  input: {
+    width: "90%",
+    backgroundColor: "#0f0"
   }
 });

@@ -9,17 +9,16 @@ export default function Input(props) {
     props.onSubmit(enteredMessage);
   };
   return (
-    <View style={styles.container}>
-      <View>
+    <View style={{...styles.container, ...props.style}}>
+      <View  style={styles.inputContainer}>
         <TextInput
           placeholder="Hey Bud!"
-          style={styles.input}
           onChangeText={setEnteredMessage}
           value={enteredMessage}
         ></TextInput>
       </View>
-      <View>
-        <Button style={styles.button} title="Send" onPress={onSubmit} />
+      <View style={styles.buttonContainer} >
+        <Button title="Send" onPress={onSubmit} />
       </View>
     </View>
   );
@@ -29,16 +28,20 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     flex: 1,
-    justifyContent: "center",
+    alignItems: "center",
+    justifyContent: "space-between"
   },
-  input: {
+  inputContainer: {
     flex: 0.8,
     borderColor: "black",
     borderWidth: 1,
-    padding: 10,
+    borderRadius: 20,
+    padding: 5,
     marginBottom: 10,
+    backgroundColor: "#f00"
   },
-  button: {
+  buttonContainer: {
     flex: 0.2,
+    backgroundColor: "#00f"
   },
 });
