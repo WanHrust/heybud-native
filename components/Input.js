@@ -7,6 +7,7 @@ export default function Input(props) {
   const onSubmit = () => {
     console.log("Sending message to the cloud... ");
     props.onSubmit(enteredMessage);
+    setEnteredMessage("");
   };
   return (
     <View style={{...styles.container, ...props.style}}>
