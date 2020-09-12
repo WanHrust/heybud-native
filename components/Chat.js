@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import {
+  View,
+  StyleSheet,
+  FlatList,
+  TouchableWithoutFeedback,
+  Keyboard
+} from "react-native";
 import Message from "./Message";
 import Input from "./Input";
 
@@ -124,7 +130,7 @@ const Chat = () => {
       id: "24",
       text: "Hello developer",
       createdAt: new Date(),
-    }
+    },
   ]);
 
   const onSubmitClicked = (message) => {
@@ -141,23 +147,27 @@ const Chat = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.listContainer}>
-        <FlatList
-          keyExtractor={(item, index) => item.id}
-          data={messages}
-          contentContainerStyle={styles.list}
-          renderItem={(itemData) => (
-            <Message style={styles.message} text={itemData.item.text}></Message>
-          )}
-        ></FlatList>
+    <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss();} }>
+      <View style={styles.container}>
+        <View style={styles.listContainer}>
+          <FlatList
+            keyExtractor={(item, index) => item.id}
+            data={messages}
+            contentContainerStyle={styles.list}
+            renderItem={(itemData) => (
+              <Message
+                style={styles.message}
+                text={itemData.item.text}
+              ></Message>
+            )}
+          ></FlatList>
+        </View>
+        <View style={styles.inputContainer}>
+          <Input style={styles.input} onSubmit={onSubmitClicked}></Input>
+        </View>
       </View>
-      <View style={styles.inputContainer}>
-        <Input style={styles.input} onSubmit={onSubmitClicked}></Input>
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
-  a;
 };
 
 export default Chat;
@@ -165,28 +175,28 @@ export default Chat;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center"
+    alignItems: "center",
   },
   listContainer: {
-    flex:1,
+    flex: 1,
     width: "90%",
-    backgroundColor: "#0f0"
+    backgroundColor: "#0f0",
   },
   list: {
     flexGrow: 1,
     justifyContent: "flex-end",
-    backgroundColor: "#f00"
+    backgroundColor: "#f00",
   },
   message: {
-    margin: 5
+    margin: 5,
   },
   inputContainer: {
     flex: 0.1,
     width: "100%",
-    alignItems: "center"
+    alignItems: "center",
   },
   input: {
     width: "90%",
-    backgroundColor: "#0f0"
-  }
+    backgroundColor: "#0f0",
+  },
 });
