@@ -38,11 +38,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 20,
     padding: 5,
-    marginBottom: 10,
-    backgroundColor: "#f00"
+    marginBottom: 10
   },
   buttonContainer: {
-    flex: 0.2,
-    backgroundColor: "#00f"
-  },
+    flex: 0.2
+  }
 });

@@ -179,13 +179,11 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
-    width: "90%",
-    backgroundColor: "#0f0",
+    width: "90%"
   },
   list: {
     flexGrow: 1,
-    justifyContent: "flex-end",
-    backgroundColor: "#f00",
+    justifyContent: "flex-end"
   },
   message: {
     margin: 5,
@@ -193,10 +191,9 @@ const styles = StyleSheet.create({
   inputContainer: {
     flex: 0.1,
     width: "100%",
-    alignItems: "center",
+    alignItems: "center"
   },
   input: {
-    width: "90%",
-    backgroundColor: "#0f0",
+    width: "90%"
   },
 });
