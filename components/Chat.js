@@ -130,7 +130,7 @@ const Chat = () => {
       id: "24",
       text: "Hello developer",
       createdAt: new Date(),
-    },
+    }
   ]);
 
   const onSubmitClicked = (message) => {
@@ -151,6 +151,8 @@ const Chat = () => {
       <View style={styles.container}>
         <View style={styles.listContainer}>
           <FlatList
+            ref={ref => (this.FlatListRef = ref)} // assign the flatlist's ref to your component's FlatListRef...
+            onContentSizeChange={() => this.FlatListRef.scrollToEnd()} // scroll it
             keyExtractor={(item, index) => item.id}
             data={messages}
             contentContainerStyle={styles.list}
